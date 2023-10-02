@@ -1,0 +1,49 @@
+<% layout("/layout/boilerplate") %>
+<link rel="stylesheet" href="/stylesheets/images.css" class="rel">
+
+<h1>Edit Photo of <%= gal.date %></h1>
+
+<form action="/gallery/<%= gal._id %>?_method=PUT" method="POST" novalidate class="validated-form"
+    enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label" for="note">Description:</label>
+        <textarea name="gallery[desc]" id="note" cols="30" rows="3" class="form-control"><%= gal.desc %></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <!-- <div class="mb-3">
+        <label for="image" class="form-label">Add Images:</label>
+        <input class="form-control" type="file" id="image" name="image" multiple>
+    </div> -->
+
+    <div class="mb-3 custom-file">
+        <h4>
+            <label class="form-label">Choose Image(s)</label>
+        </h4>
+        <div class="form-file custom-file">
+            <input class="form-control custom-file-input" type="file" name="image" id="image" multiple
+                onchange="previewMultiple(event)">
+            <label for="image" class="form-label custom-file-label"></label>
+        </div>
+        <div id="formFile"></div>
+    </div>
+
+    <h6>Delete Images: </h6>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+        <% gal.photos.forEach((image, i) => { %>
+        <div class="col">
+            <div class="card">
+                <label for="image-<%= i %>"><img class="card-img" src="<%= image.url %>" alt="">
+                    <div class="card-img-overlay text-end pt-1 pe-2">
+                        <input class="form-check-input" type="checkbox" name="deletePhotos[]"
+                            value="<%= image.filename %>" id="image-<%= i %>">
+                    </div>
+                </label>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <button class="btn btn-success">Edit</button>
+</form>

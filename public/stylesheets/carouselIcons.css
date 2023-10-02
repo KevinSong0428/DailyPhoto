@@ -1,0 +1,13 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border: 2px solid #000000;
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
+    transform: translateY(-50%);
+    background-color: rgba(19, 19, 19, 0.5);
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    border-color: #000000;
+}

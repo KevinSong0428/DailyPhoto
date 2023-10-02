@@ -1,0 +1,45 @@
+<% layout("/layout/boilerplate") %>
+<link rel="stylesheet" href="/stylesheets/colorBox.css" class="rel">
+<link rel="stylesheet" href="/stylesheets/images.css" class="rel">
+<link rel="stylesheet" href="/stylesheets/carouselIcons.css" class="rel">
+
+<h1><%= gal.date %></h1>
+
+<h3><%= gal.desc %></h3>
+
+<div class="row">
+    <div class="col">
+        <div id="galleryCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <% gal.photos.forEach((photo, i) => { %>
+                <div class="carousel-item <%= i === 0 ? "active" : "" %>">
+                    <img class="d-block w-100 main-img" src=<%= photo.url %> alt="">
+                    <!-- <span><%= photo.palette %></span> -->
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <% photo.palette.forEach((color) => { %>
+                            <div class="color-box" style="background-color: <%= color %>;"></div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% if (gal.photos.length > 1) { %>
+                <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#galleryCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a href="/gallery/<%= gal._id %>/edit" class="btn btn-primary">Edit</a>
+
+<form action="/gallery/<%= gal._id %>/<%= user._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button>
+</form>

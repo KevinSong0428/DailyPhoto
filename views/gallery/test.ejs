@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+
+    <h1>New Photo</h1>
+
+    <!-- Use a regular text input without type="date" -->
+    <input type="text" id="date" name="gallery[date]" class="form-control" required>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        console.log("??")
+        document.addEventListener("DOMContentLoaded", function () {
+            const datePicker = document.getElementById("date");
+            console.log(datePicker);
+            function disableDates(date) {
+                const formattedDate = date.toISOString().split("T")[0];
+                const takenDates = ["2023-07-25", "2023-07-28"]; // Replace with your actual takenDates
+                return takenDates.includes(formattedDate) || date < new Date();
+            }
+
+            console.log("DATE PICKER FOCUS!"); // Check if this message appears
+
+            // Use flatpickr on the text input element
+            flatpickr(datePicker, {
+                minDate: "today",
+                disable: disableDates,
+            });
+        });
+    </script>
+
+</body>
+
+</html>

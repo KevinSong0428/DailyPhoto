@@ -1,0 +1,69 @@
+<% layout("/layout/boilerplate") %>
+<link rel="stylesheet" href="/stylesheets/images.css" class="rel">
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<h1>New Photo</h1>
+
+<form action="/gallery/new" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+    <div class="mb-3">
+        <h4>
+            <label class="form-label" for="note">Description:</label>
+        </h4>
+        <textarea name="gallery[desc]" id="note" cols="30" rows="3" class="form-control"></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="date">
+            <h4>Date: </h4>
+            <small>(If date is disabled, please search and add pictures there)</small>
+        </label>
+        <input type="text" id="date" name="gallery[date]" class="form-control" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="mb-3 custom-file">
+        <h4>
+            <label class="form-label">Choose Image(s)</label>
+        </h4>
+        <div class="form-file custom-file">
+            <input class="form-control custom-file-input" type="file" name="image" id="image" multiple
+                onchange="previewMultiple(event)">
+            <label for="image" class="form-label custom-file-label"></label>
+        </div>
+        <div id="formFile"></div>
+    </div>
+
+    <button class="btn btn-success">Add</button>
+</form>
+
+<script>
+    // parse the formattedTakenDates variable
+    const formattedTakenDates = JSON.parse('<%- JSON.stringify(formattedTakenDates) %>');
+    console.log("formattedTakenDates:", formattedTakenDates);
+
+    // check if date is in the list of takenDates
+    function isDateTaken(date) {
+        return formattedTakenDates.indexOf(date) !== -1;
+    }
+
+    // format date as mm/dd/yy
+    function formatDate(date) {
+        return $.datepicker.formatDate("mm/dd/yy", date);
+    }
+
+    // initialize the datepicker
+    $("#date").datepicker({
+        dateFormat: "mm/dd/yy",
+        beforeShowDay: function (date) {
+            const formattedDate = formatDate(date);
+            return [!isDateTaken(formattedDate)];
+        }
+    });
+</script>

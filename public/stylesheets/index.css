@@ -1,0 +1,27 @@
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    /* preserves the aspect ratio of the img but has white space */
+    /* object-fit: cover; <-- doesn't show all of it but takes up all of the box */
+}
+
+.img-thumbnail {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.card-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
