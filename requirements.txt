@@ -1,0 +1,6 @@
+json
+requests
+Pillow
+scikit-learn
+numpy
+matplotlib
