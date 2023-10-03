@@ -24,9 +24,8 @@
 </details>
 
 ## Introduction
-This is a personal project that allows the user to capture their everyday lives simply with colors. Images can be uploaded every day with a description and the site will process them, find the dominant colors, and return it back.
-<br>
-I am planning to implement a life strip where I can combine all the colors of the year into a single strip. Another thing I will implement is sentiment analysis based on the description with colors. A picture will only show the five dominant colors but won't tell the entire story of the user's day but their description with their colors may help.
+<p>This is a personal project that allows the user to capture their everyday lives simply with colors. Images can be uploaded every day with a description and the site will process them, find the dominant colors, and return it back.</p>
+<p>I am planning to implement a life strip where I can combine all the colors of the year into a single strip. Another thing I will implement is sentiment analysis based on the description with colors. A picture will only show the five dominant colors but won't tell the entire story of the user's day but their description with their colors may help.</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
