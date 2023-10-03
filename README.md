@@ -14,8 +14,8 @@
     </li>
     <li><a href="#installation">Installation</a>
       <ul>
-        <li>JavaScript Dependencies</li>
-        <li>Python Dependencies</li>
+        <li><a href="#javascript-dependencies">JavaScript Dependencies</li>
+        <li><a href="#python-dependencies">Python Dependencies</li>
       </ul>
     </li>
     <li><a href="#getting-started">Getting Started</a></li>
