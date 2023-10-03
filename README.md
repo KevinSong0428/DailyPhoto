@@ -48,6 +48,8 @@ I am planning to implement a life strip where I can combine all the colors of th
 ### Python Dependencies  
 1) To install the required Python dependencies, navigate to the project's root directory and run: `pip install -r requirements.txt`
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Getting Started
 1) You need to create a Cloudinary account and create a `.env` file and get these THREE keys after creating an account.
 * **CLOUDINARY_CLOUD_NAME** - CLOUDINARY_CLOUD_NAME=``<br>
