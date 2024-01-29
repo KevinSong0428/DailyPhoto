@@ -60,7 +60,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
-To run the website on your local server,  go to the  run `nodemon app.js`.
+To run the website on your local server,  go to the frontend and run `nodemon app.js`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
